@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My Dashboard</title>
+	<link href="static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<script src="static/jquery-2.1.1.js"></script>
+	<script src="static/bootstrap/js/bootstrap.js"></script>
+	<script src="static/report.js"></script>
+	<link rel="stylesheet" href="static/datetimepicker/bootstrap-datetimepicker.min.css">
+	<script src="static/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="static/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+	<style>
+		.badge {
+			background-color: #337ab7;
+		}
+	</style>
+</head>
+
+
+
+<body>
+	<!-- 主容器-->
+	<div class="container-fluid" style="padding-left: 2px;padding-right: 2px;">
+		<div class="row-fluid" style="padding-left: 2px;padding-right: 2px;">
+			<div class="col-md-1"></div>
+			<div class="col-md-10" style="padding-left: 2px;padding-right: 2px;">
+				<div class="col-md-12" style="background-color:#337ab7;color: #ffffff;">
+					<h1>WorkDone</h1>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+
+			<div class="col-md-12" style="padding-left: 0px;padding-right: 0px;">
+				<div class="col-md-1"></div>
+				<div class="col-md-10" style="padding-left: 2px;padding-right: 2px;">
+					<a href="/myDashBoard" style="padding-left: 2px;padding-right: 12px;" class="float btn btn-link">
+						<h4>MyDashboard</h4>
+					</a>
+					<a href="/IssueView" style="padding-left: 2px;padding-right: 12px;" class="float btn btn-link">
+						<h4>IssueView</h4>
+					</a>
+					<a href="/WeeklyReport" style="padding-left: 2px;padding-right: 12px;" class="float btn btn-link">
+						<h4>WeeklyReport</h4>
+					</a>
+					<a id="wd_exit" rel="nofollow" href="/" class="float btn btn-link pull-right" type="button">
+						<h4>Logout</h4>
+					</a>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+
+			<div class="col-md-12" style="padding-left: 2px;padding-right: 2px;">
+				<div class="col-md-1"></div>
+				<div class="col-md-2" style="padding-left: 2px;padding-right: 2px;">
+					<form>
+						<div class="form-group">
+							<label>The Report Day</label>
+							<div class="input-group">
+								<div id="InputDay" class="input-group date form_date " data-date="" data-date-format="yyyy mm dd" data-link-format="yyyy-mm-dd">
+									<input class="form-control" type="text" aria-describedby="basic-addon1" readonly>
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</div>
+							<!--<input type="text" class="form-control" id="InputDay">-->
+						</div>
+						<button type="button" id="report_btn" class="btn btn-default" disabled="disabled">Submit</button>
+					</form>
+				</div>
+				<div class="col-md-8"></div>
+				<div class="col-md-1"></div>
+			</div>
+			<div class="col-md-12" style="margin-top: 20px; padding-left: 2px;padding-right: 2px;">
+				<div class="col-md-1"></div>
+				<div class="col-md-5" style="padding-left: 2px;padding-right: 2px;">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3>Last Week</h3>
+						</div>
+						<div id="panel_lastweek" class="panel-body" style="padding-left: 2px;padding-right: 2px;">
+							<!-- <p>9999999999999(ongoing)<br>SQL培训(pending)<br>111111(pending)<br>持续集成改造(delay)<br>3333333333333333333(delay)</p> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5" style="padding-left: 2px;padding-right: 2px;">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3>This Week</h3>
+						</div>
+						<div id="panel_thisweek" class="panel-body" style="padding-left: 2px;padding-right: 2px;">
+							<!-- <p>9999999999999(ongoing)<br>SQL培训(pending)<br>111111(pending)<br>持续集成改造(delay)<br>3333333333333333333(delay)</p> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$('#InputDay').datetimepicker({
+		format: 'yyyy-mm-dd',
+		language: 'zh-CN',
+		minView: "month",
+		weekStart: 1,
+		todayBtn: 1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+		showMeridian: 1,
+		forceParse: true
+	}).on('changeDate', function (ev) {
+		$(this).datetimepicker('hide');
+	});
+
+</script>
+
+</html>
